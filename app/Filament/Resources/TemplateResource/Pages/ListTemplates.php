@@ -20,21 +20,4 @@ class ListTemplates extends ListRecords
         ];
     }
 
-    public function getTabs(): array
-        {
-            return [
-                'All' => Tab::make()
-                    ->badge(template::query()->count())
-                    ->badgeColor('primary'),
-                'Basic' => Tab::make()
-                    ->modifyQueryUsing(fn (Builder $query) => $query->where('type', 'Basic'))
-                    ->badge(template::query()->where('type', 'Basic')->count())
-                    ->badgeColor('primary'),
-                'Premium' => Tab::make()
-                    ->modifyQueryUsing(fn (Builder $query) => $query->where('type', 'Premium'))
-                    ->badge(template::query()->where('type', 'Premium')->count())
-                    ->badgeColor('primary'),
-            
-            ];
-        }
-}
+    }

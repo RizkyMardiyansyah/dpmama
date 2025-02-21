@@ -25,6 +25,7 @@ use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction as TablesExportBulkActi
 use pxlrbt\FilamentExcel\Exports\ExcelExport;
 use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Enums\FiltersLayout;
+use pxlrbt\FilamentExcel\Columns\Column;
 use Malzariey\FilamentDaterangepickerFilter\Filters\DateRangeFilter;
 
 class OrderResource extends Resource
@@ -42,7 +43,7 @@ class OrderResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        $count = static::getModel()::where('status', 'Developing')->count();
+        $count = static::getModel()::all()->count();
 
         return $count > 0 ? (string) $count : null;
     }  
@@ -52,95 +53,19 @@ class OrderResource extends Resource
     {
         return $form
             ->schema([
-                // Section::make('Order')->schema([
-                    Section::make('Website Information')->schema([
-                        Forms\Components\TextInput::make('domain')
-                            ->required()
-                            ->maxLength(255),
-                        Forms\Components\Select::make('status')
-                            ->options(
-                                [
-                                    'Paying' => 'Paying',
-                                    'Developing' => 'Developing',
-                                    'Online' => 'Online',
-                                    'Renewing' => 'Renewing',
-                                    'Offline' => 'Offline',
-                                ]
-                            )
-                            ->default('Paying')
-                            ->required(),
-                        Forms\Components\Select::make('template')
-                            ->required()
-                            ->options(template::pluck('title', 'id')->toArray())
-                            ->columnSpanFull()
-                            ->reactive(),
-                        
-                    ])->columns(2),
-                    Section::make('Personal Information')->schema([
+                       
+                    Section::make('Pesanan')->schema([
                         Forms\Components\TextInput::make('name')
-                            ->required()
-                            ->maxLength(255),
-                        Forms\Components\TextInput::make('nik')
-                            ->required()
-                            ->maxLength(255),                        
-                        Forms\Components\TextInput::make('email')
-                            ->email()
                             ->required()
                             ->maxLength(255),
                         Forms\Components\TextInput::make('phone_number')
                             ->tel()
                             ->required()
                             ->maxLength(255),
-                    ])->columns(2),
-                    Section::make('Supporting Document')->schema([
-                        Forms\Components\FileUpload::make('ktp')
-                            ->disk('public')
-                            ->downloadable()
-                            ->default(null),
-                        Forms\Components\FileUpload::make('siup')
-                            ->disk('public')
-                            ->downloadable()
-                            ->default(null),
-                        Forms\Components\FileUpload::make('npwp')
-                            ->disk('public')
-                            ->downloadable()
-                            ->default(null),
-                    ]),
-                    Section::make('Paymet Information')->schema([                        
-                        Forms\Components\TextInput::make('orderId')
-                            ->disabled()
-                            ->reactive(),
-                        Forms\Components\TextInput::make('referal')
-                            ->disabled()
-                            ->reactive(),
-                        Forms\Components\TextInput::make('snapKey')
-                            ->disabled()
-                            ->maxLength(255)
-                            ->default(null),
-                        Forms\Components\TextInput::make('paymentType')
-                            ->disabled()
-                            ->reactive(),                        
-                        Forms\Components\Select::make('subscription')
-                            ->options(subscription::pluck('title', 'id')->toArray())
-                            ->reactive(),
-                        Forms\Components\TextInput::make('subscriptionCost')
-                            ->mask(RawJs::make('$money($input)'))
-                            ->numeric()
-                            ->prefix('IDR')
-                            ->stripCharacters(',')
-                            ->default(0),
-                        Forms\Components\TextInput::make('domainCost')
-                            ->mask(RawJs::make('$money($input)'))
-                            ->numeric()
-                            ->prefix('IDR')
-                            ->stripCharacters(',')
-                            ->default(0),
-                        Forms\Components\TextInput::make('templateCost')
-                            ->mask(RawJs::make('$money($input)'))
-                            ->numeric()
-                            ->prefix('IDR')
-                            ->stripCharacters(',')
-                            ->default(0),                        
+                        Forms\Components\RichEditor::make('orders')
+                            ->required()
+                            ->columnSpanFull(),
+                                        
                         Forms\Components\TextInput::make('total_payment')
                             ->mask(RawJs::make('$money($input)'))
                             ->label('Total Amount')
@@ -149,11 +74,6 @@ class OrderResource extends Resource
                             ->stripCharacters(',')
                             ->columnSpanFull()
                             ->default(0),
-                        Forms\Components\FileUpload::make('invoice')
-                            ->disk('public')
-                            ->downloadable()
-                            ->columnSpanFull()
-                            ->default(null),
                     ])->columns(2),
                 // ]),
             ]);
@@ -163,42 +83,17 @@ class OrderResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('orderId')
-                    ->sortable()
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('domain')
-                    ->formatStateUsing(fn ($state) => ucwords($state))
-                    ->sortable()
-                    ->searchable(),
+               
                 Tables\Columns\TextColumn::make('name')
                     ->formatStateUsing(fn ($state) => ucwords($state))
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('email')
+                Tables\Columns\TextColumn::make('phone_number')
                     ->formatStateUsing(fn ($state) => ucwords($state))
-                    ->sortable()->sortable()
                     ->searchable(),
-                Tables\Columns\BadgeColumn::make('status')
-                    ->formatStateUsing(fn ($state) => ucwords($state))
+                Tables\Columns\TextColumn::make('total_payment')
                     ->sortable()
-                    ->colors([
-                        'warning',
-                        'primary' => 'Developing',
-                        'success' => 'Online',
-                        'danger' => 'Offline',
-                        
-                    ])
-                    ->icons([
-                        'heroicon-m-x-circle',
-                        'heroicon-m-currency-dollar' => 'Paying',
-                        'heroicon-m-code-bracket' => 'Developing',
-                        'heroicon-m-globe-alt' => 'Online',
-                        'heroicon-m-receipt-percent' => 'Renewing',
-                        'heroicon-m-x-circle' => 'Offline',
-                    ]),
-                Tables\Columns\TextColumn::make('referal')
-                    ->sortable()
-                    ->searchable(),  
+                    ->money('IDR'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -222,9 +117,22 @@ class OrderResource extends Resource
             ->bulkActions([
                 TablesExportBulkAction::make()->exports([
                     
+                    ExcelExport::make()->withColumns([
+                        Column::make('name')->heading('Nama'),
+                        Column::make('phone_number')->heading('Nomor HP'),
+                        Column::make('orders')->heading('Pesanan')
+                        ->formatStateUsing(fn ($state) => str_replace(
+                            ['<ol><li>', '</li></ol>', '</li><li>'], 
+                            ['', ',', ','], 
+                            $state
+                        )),
+                        Column::make('created_at')->heading('Tanggal Dipesan'),
+                        Column::make('total_payment')->heading('Total Pesanan'),
+                    ]),
+                    
                     ExcelExport::make('form')
                     ->fromForm()
-                    ->withFilename(date('Y-m-d') . ' - Orders'),
+                    ->withFilename(date('Y-m-d') . ' - Pesanan'),
                 ]),
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()

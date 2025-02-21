@@ -1,9 +1,3 @@
-{{-- To Top Button --}}
-<button id="floatingButton" onclick="topFunction()">
-    <svg width="18px" height="18px" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-        <path fill="currentColor" stroke="currentColor" stroke-width="1.5" d="m9 1.196 6.188 6.188 -0.746 0.746 -4.915-4.915v13.592h-1.054V3.213L3.556 8.13l-0.744-0.747Z"/>
-    </svg>
-</button>
 
 {{-- Whatsapp Button --}}
 <button id="whatsapp">
@@ -28,17 +22,9 @@
 {{-- Navbar --}}
 <nav  id="navbar" class="navbar navbar-expand-lg navbar-light" style="background-color: transparent; transition: background-color 0.5s;">
     <div class="container">
-        <a class="navbar-brand blue" href="/"><img  src="../img/NewLogoMardBlue.svg" height="50px" style="padding: 5px;"></a>
-        <a class="navbar-brand white" href="/"><img src="../img/NewLogoMardWhite.svg" height="50px" style="padding: 5px;"></a>
-        <div class="language-selector order-lg-2">
-            <div class="toggle-container">
-                <input type="checkbox" id="languageToggle" class="toggle-checkbox">
-                <label class="toggle-label" for="languageToggle">
-                    <span class="toggle-inner">EN</span>
-                    <span class="toggle-switch"></span>
-                </label>
-            </div>
-        </div>
+        <a class="navbar-brand blue" href="/"><img  src="../img/dpmama2.svg" height="50px" style="padding: 5px;"></a>
+        <a class="navbar-brand white" href="/"><img src="../img/dpmama2.svg" height="50px" style="padding: 5px;"></a>
+    
         {{-- Toggler for Mobile --}}
         <button style="margin-left:-15%" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <span class="navbar-toggler-icon" style="box-shadow: none;"></span>
@@ -46,23 +32,12 @@
         
         <div style="width: 60%" class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
-                <a id="offcanvas-logo" href="/"><img  src="../img/NewLogoMardBlue.svg" height="40px" style="padding: 5px;"></a>
+                <a id="offcanvas-logo" href="/"><img  src="../img/dpmama2.svg" height="40px" style="padding: 5px;"></a>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item"><a class="nav-link" href="/"  data-lang-en="Home" data-lang-id="Beranda">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/#about" data-lang-en="About" data-lang-id="Tentang Kami">About</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="/#services" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-lang-en="Services" data-lang-id="Layanan Kami">Services</a>
-                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                            <li><a class="dropdown-item" href="/instant-web-builder" data-lang-en="Instant Web Builder" data-lang-id="Pembuat Web Instan">Instant Web Builder</a></li>
-                            <li><a class="dropdown-item" href="/custom-app-development" data-lang-en="Custom App Development" data-lang-id="Pengembangan Aplikasi Kustom">Custom App Development</a></li>
-                            <li><a class="dropdown-item" href="/one-stop-iot-solutions" data-lang-en="One Stop IoT Solutions" data-lang-id="Solusi IoT Lengkap">One Stop IoT Solutions</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="/#partners" data-lang-en="Partners" data-lang-id="Mitra">Partners</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/contact" data-lang-en="Contact Us" data-lang-id="Kontak">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/admin">MASUK</a></li>
                 </ul>
             </div>
         </div>

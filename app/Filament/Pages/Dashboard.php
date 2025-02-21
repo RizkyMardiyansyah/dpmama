@@ -15,6 +15,7 @@ class Dashboard extends \Filament\Pages\Dashboard
     protected static ?string $navigationIcon = 'heroicon-m-squares-plus';
     
     protected static ?string $navigationGroup = 'Dashboard';
+    protected static bool $shouldRegisterNavigation = false;
 
     use HasFiltersForm;
 
