@@ -1,15 +1,8 @@
 .navbar{
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  backdrop-filter: blur(10px);
+ 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan saat discroll */
   .nav-link{
   color: #E18903 !important;
-  }
-  .white{      
-  display:none;   
-  }
-  .blue{
-  display:block;
   }
 }
 
@@ -519,7 +512,6 @@ body{
   margin-bottom: 0px !important;
   opacity: 100%;
 }
-
 
 
 .cart{
@@ -1636,7 +1628,6 @@ html {
         }
 
         .navbar{
-          background-color: rgba(41,42,47, 1);
           left: 0;
           top: 0;
           position: fixed;

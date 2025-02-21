@@ -20,9 +20,8 @@
 
 
 {{-- Navbar --}}
-<nav  id="navbar" class="navbar navbar-expand-lg navbar-light" style="background-color: transparent; transition: background-color 0.5s;">
+<nav  id="navbar" class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-        <a class="navbar-brand blue" href="/"><img  src="../img/dpmama2.svg" height="50px" style="padding: 5px;"></a>
         <a class="navbar-brand white" href="/"><img src="../img/dpmama2.svg" height="50px" style="padding: 5px;"></a>
     
         {{-- Toggler for Mobile --}}
@@ -32,10 +31,10 @@
         
         <div style="width: 60%" class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
-                <a id="offcanvas-logo" href="/"><img  src="../img/dpmama2.svg" height="40px" style="padding: 5px;"></a>
+                <a id="offcanvas-logo" href="/"><img  src="../img/dpmama2.svg" height="30px" style="padding: 5px;"></a>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body">
+            <div class="offcanvas-body" style="opacity: 100%;">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item"><a class="nav-link" href="/admin">MASUK</a></li>
                 </ul>
