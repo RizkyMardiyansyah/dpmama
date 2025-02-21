@@ -42,8 +42,13 @@ protected static ?string $pluralLabel = 'Menu';
                 Forms\Components\TextInput::make('title')
                     ->label('Nama')
                     ->required()
-                    ->columnSpanFull()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('price')
+                    ->label('Harga')
+                    ->mask(RawJs::make('$money($input)'))
+                    ->required()
+                    ->prefix('IDR')
+                    ->default(0),
                 
                 Forms\Components\FileUpload::make('image')
                     ->label('Gambar')
@@ -52,12 +57,7 @@ protected static ?string $pluralLabel = 'Menu';
                     ->downloadable()
                     ->columnSpanFull(),             
 
-                Forms\Components\TextInput::make('price')
-                    ->label('Harga')
-                    ->mask(RawJs::make('$money($input)'))
-                    ->required()
-                    ->prefix('IDR')
-                    ->default(0),
+                
             ])->columns(2),
         ]);
     }
