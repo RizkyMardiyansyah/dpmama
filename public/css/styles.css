@@ -1587,6 +1587,9 @@ html {
         
 /* phone View */
 @media (max-width: 767.98px) {  
+        .menu{
+          margin-top: 20px;
+        }
           .StepOfWizard {
             flex-direction: column;
           }
