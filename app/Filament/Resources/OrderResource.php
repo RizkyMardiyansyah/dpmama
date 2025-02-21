@@ -117,22 +117,53 @@ class OrderResource extends Resource
             ->bulkActions([
                 TablesExportBulkAction::make()->exports([
                     
-                    ExcelExport::make()->withColumns([
-                        Column::make('name')->heading('Nama'),
-                        Column::make('phone_number')->heading('Nomor HP'),
-                        Column::make('orders')->heading('Pesanan')
-                        ->formatStateUsing(fn ($state) => str_replace(
-                            ['<ol><li>', '</li></ol>', '</li><li>'], 
-                            ['', ',', ','], 
-                            $state
-                        )),
-                        Column::make('created_at')->heading('Tanggal Dipesan'),
-                        Column::make('total_payment')->heading('Total Pesanan'),
-                    ]),
+                    ExcelExport::make()->withColumns(function () {
+                        // Ambil semua orders dari database dan cari nama uniknya
+                        $ordersData = Order::pluck('orders')->toArray();
+                        $parsedOrders = collect();
                     
-                    ExcelExport::make('form')
-                    ->fromForm()
+                        foreach ($ordersData as $order) {
+                            preg_match_all('/<li>(.*?) \((\d+)\)<\/li>/', $order, $matches);
+                            if (!empty($matches[1])) {
+                                foreach ($matches[1] as $index => $name) {
+                                    $parsedOrders->put($name, true); 
+                                }
+                            }
+                        }
+                    
+                        $columns = [
+                            Column::make('name')->heading('Nama'),
+                            Column::make('phone_number')->heading('Nomor HP'),
+                            Column::make('created_at')->heading('Tanggal Dipesan'),
+                            Column::make('total_payment')->heading('Total Pesanan'),
+                        ];
+                    
+                        foreach ($parsedOrders->keys() as $orderName) { // Loop semua nama pesanan unik
+                            $columns[] = Column::make($orderName) // Buat kolom dengan nama pesanan
+                                ->heading($orderName)
+                                ->getStateUsing(function ($record) use ($orderName) {
+                                    $state = $record->orders; 
+                                
+                                    preg_match_all('/<li>(.*?) \((\d+)\)<\/li>/', $state, $matches);
+                                    
+                                    if (!empty($matches[1])) { 
+                                        foreach ($matches[1] as $index => $name) {
+                                            if (trim($name) === trim($orderName)) { 
+                                                return isset($matches[2][$index]) ? (int) $matches[2][$index] : 0;
+                                            }
+                                        }
+                                    }
+                                    return 0;
+                                });
+                        }
+                        
+                    
+                        return $columns;
+                    })
                     ->withFilename(date('Y-m-d') . ' - Pesanan'),
+                    
+                    
+                    
                 ]),
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()

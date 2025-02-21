@@ -1,3 +1,19 @@
+<style>
+    .carousel-indicators{
+        margin-bottom: -30px !important;
+        
+    }
+    .carousel-indicators li {
+    background-color: rgba(225, 137, 3, 0.5) !important; /* Warna indikator default */
+    opacity: 0.5;
+}
+
+.carousel-indicators .active {
+    background-color: #E18903 !important; /* Warna indikator aktif */
+    opacity: 1;
+}
+    
+</style>
 <!doctype html>
 <html lang="en">
 <head>        
@@ -27,9 +43,11 @@
 <div class="container" style="margin-top: 70px">
     <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
 
+        
+        
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="img/baner.png" class="d-block w-100 rounded-3" alt="Banner">
+                <img src="img/baner.svg" class="d-block w-100 rounded-3" alt="Banner">
             </div>
             <div class="carousel-item">
                 <img src="img/keju.png" class="d-block w-100 rounded-3" alt="Keju">
@@ -41,6 +59,14 @@
                 <img src="img/salju.png" class="d-block w-100 rounded-3" alt="Salju">
             </div>
         </div>
+
+        <!-- Indikator (dot dot) -->
+        <ol class="carousel-indicators">
+            <li data-bs-target="#imageCarousel" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#imageCarousel" data-bs-slide-to="1"></li>
+            <li data-bs-target="#imageCarousel" data-bs-slide-to="2"></li>
+            <li data-bs-target="#imageCarousel" data-bs-slide-to="3"></li>
+        </ol>
     
         <!-- Tombol navigasi -->
         <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
@@ -251,13 +277,14 @@ document.querySelectorAll(".template-checkbox").forEach(checkbox => {
 
         // Jika input sudah terisi, tampilkan konfirmasi checkout
         Swal.fire({
-            title: "Are you sure?",
-            text: "Do you want to proceed with the checkout?",
+            title: "Pesanan Kamu Benar?",
+            text: "Apa pesanan kamu sudah benar dan ingin melanjutkan?",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#488EFE",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, Checkout!"
+            confirmButtonText: "Iya, Pesan"
+            cancelButtonText: "Batal"
         }).then((result) => {
             if (result.isConfirmed) { 
                 document.getElementById('personal-info-form').submit(); // Submit form
