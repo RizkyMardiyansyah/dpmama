@@ -114,7 +114,7 @@
                         <h5 class="cart-title price" id="Subtotal">Rp. 0</h5>
                     </div>
     
-                <button id="next-button"  type="submit" class="w-100 nextBtn btn">PESAN</button>
+                <button style="margin-top: 40px" id="next-button"  type="submit" class="w-100 nextBtn btn">PESAN</button>
         </div>        
     </div>
 </div>
