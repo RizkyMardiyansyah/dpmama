@@ -44,11 +44,11 @@ protected static ?string $pluralLabel = 'Menu';
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('price')
-                    ->label('Harga')
                     ->mask(RawJs::make('$money($input)'))
                     ->required()
+                    ->numeric()
                     ->prefix('IDR')
-                    ->default(0),
+                    ->stripCharacters(','), 
                 
                 Forms\Components\FileUpload::make('image')
                     ->label('Gambar')
