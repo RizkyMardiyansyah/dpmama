@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Raleway:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
 <body style="background-color: #FAFAFA;" id="home">  
@@ -23,10 +24,32 @@
 
 {{-- Instal Build Website --}}
 <div  class="">
-<div class="container">
-<div style="margin-top:70px;" class=" hero-text ">
-    <img style="width: 100%; border-radius:10px;" src="img/baner.png" alt="">
-</div>
+<div class="container" style="margin-top: 70px">
+    <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/baner.png" class="d-block w-100 rounded-3" alt="Banner">
+            </div>
+            <div class="carousel-item">
+                <img src="img/keju.png" class="d-block w-100 rounded-3" alt="Keju">
+            </div>
+            <div class="carousel-item">
+                <img src="img/jambu.png" class="d-block w-100 rounded-3" alt="Jambu">
+            </div>
+            <div class="carousel-item">
+                <img src="img/salju.png" class="d-block w-100 rounded-3" alt="Salju">
+            </div>
+        </div>
+    
+        <!-- Tombol navigasi -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
 <form class="justify-content-center" id="personal-info-form" method="POST" action="{{ route('orderstore') }}" enctype="multipart/form-data">        
     @csrf
 <div style=""  class="menu serv hero-text row">
@@ -83,6 +106,7 @@
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
  <script>
     sessionStorage.clear();
  
