@@ -69,12 +69,12 @@
         </ol>
     
         <!-- Tombol navigasi -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+        {{-- <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        </button>
+        </button> --}}
     </div>
 <form class="justify-content-center" id="personal-info-form" method="POST" action="{{ route('orderstore') }}" enctype="multipart/form-data">        
     @csrf
