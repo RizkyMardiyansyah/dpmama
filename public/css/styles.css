@@ -1128,8 +1128,8 @@ margin-bottom: 20px;
         
     
     @media (min-width: 992px) { /* Ukuran lg dimulai dari 992px */
-      .menu{
-        margin-top: 40px;
+      #imageCarousel{
+        margin-bottom: 20px;
       }
       .partner-logos img {
         max-width: 160px;
@@ -1587,9 +1587,6 @@ html {
         
 /* phone View */
 @media (max-width: 767.98px) {  
-        .menu{
-          margin-top: 20px;
-        }
           .StepOfWizard {
             flex-direction: column;
           }

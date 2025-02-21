@@ -78,7 +78,7 @@
     </div>
 <form class="justify-content-center" id="personal-info-form" method="POST" action="{{ route('orderstore') }}" enctype="multipart/form-data">        
     @csrf
-<div  class="menu serv hero-text row">
+<div style="margin-top:20px;"  class="menu serv hero-text row">
     <div id="template" class="serv container hero-text col-lg-8 col-12"> 
         <div id="searchTemplate" class="visible cart">   
             <div class="section" style="margin-bottom: 20px">
