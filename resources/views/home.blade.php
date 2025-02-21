@@ -29,7 +29,7 @@
 </div>
 <form class="justify-content-center" id="personal-info-form" method="POST" action="{{ route('orderstore') }}" enctype="multipart/form-data">        
     @csrf
-<div style=" margin-top:40px;"  class="serv hero-text row">
+<div style=""  class="menu serv hero-text row">
     <div id="template" class="serv container hero-text col-lg-8 col-12"> 
         <div id="searchTemplate" class="visible cart">   
             <div class="section" style="margin-bottom: 20px">

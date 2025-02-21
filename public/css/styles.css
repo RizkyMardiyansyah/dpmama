@@ -1128,6 +1128,9 @@ margin-bottom: 20px;
         
     
     @media (min-width: 992px) { /* Ukuran lg dimulai dari 992px */
+      .menu{
+        margin-top: 40px;
+      }
       .partner-logos img {
         max-width: 160px;
         padding-right: 20px;
