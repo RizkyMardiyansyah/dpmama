@@ -41,6 +41,7 @@
         background-color: #FAFAFA;
         /* background-color: rgba(0, 0, 0, 0.9) !important; */
     }
+</style>
 <!doctype html>
 <html lang="en">
 <head>        
