@@ -1,5 +1,5 @@
 .navbar{
- 
+  background-color: rgba(255, 255, 255, 1);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan saat discroll */
   .nav-link{
   color: #E18903 !important;
@@ -1186,7 +1186,7 @@ html {
 }
 
 #navbar.scrolled {
-    background-color: rgba(255, 255, 255, 1) !important;
+    background-color: rgba(255, 255, 255, 1);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     .nav-link{
       color: #FC9C07 !important;
