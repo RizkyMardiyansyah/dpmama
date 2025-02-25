@@ -58,10 +58,10 @@
             <div class="carousel-item">
                 <img src="img/bawang.png" class="d-block w-100 rounded-3" alt="bawang">
             </div>
-            <div class="carousel-item active">
+            <div class="carousel-item ">
                 <img src="img/gabus.png" class="d-block w-100 rounded-3" alt="gabus">
             </div>
-            <div class="carousel-item active">
+            <div class="carousel-item">
                 <img src="img/kacang.png" class="d-block w-100 rounded-3" alt="kacang">
             </div>
             <div class="carousel-item">
