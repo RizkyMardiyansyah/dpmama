@@ -50,6 +50,21 @@
                 <img src="img/baner.svg" class="d-block w-100 rounded-3" alt="Banner">
             </div>
             <div class="carousel-item">
+                <img src="img/kastengel.png" class="d-block w-100 rounded-3" alt="kastengel">
+            </div>
+            <div class="carousel-item">
+                <img src="img/semprit.png" class="d-block w-100 rounded-3" alt="semprit">
+            </div>
+            <div class="carousel-item">
+                <img src="img/bawang.png" class="d-block w-100 rounded-3" alt="bawang">
+            </div>
+            <div class="carousel-item active">
+                <img src="img/gabus.png" class="d-block w-100 rounded-3" alt="gabus">
+            </div>
+            <div class="carousel-item active">
+                <img src="img/kacang.png" class="d-block w-100 rounded-3" alt="kacang">
+            </div>
+            <div class="carousel-item">
                 <img src="img/keju.png" class="d-block w-100 rounded-3" alt="Keju">
             </div>
             <div class="carousel-item">
@@ -66,6 +81,11 @@
             <li data-bs-target="#imageCarousel" data-bs-slide-to="1"></li>
             <li data-bs-target="#imageCarousel" data-bs-slide-to="2"></li>
             <li data-bs-target="#imageCarousel" data-bs-slide-to="3"></li>
+            <li data-bs-target="#imageCarousel" data-bs-slide-to="4"></li>
+            <li data-bs-target="#imageCarousel" data-bs-slide-to="5"></li>
+            <li data-bs-target="#imageCarousel" data-bs-slide-to="6"></li>
+            <li data-bs-target="#imageCarousel" data-bs-slide-to="7"></li>
+            <li data-bs-target="#imageCarousel" data-bs-slide-to="8"></li>
         </ol>
     
         <!-- Tombol navigasi -->
