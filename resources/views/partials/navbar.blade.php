@@ -1,6 +1,6 @@
 
 {{-- Whatsapp Button --}}
-<button id="whatsapp">
+{{-- <button id="whatsapp">
     <a href="https://wa.me/6281286228333" target="_blank">
         <span class="contact-text">Contact Us</span>
         <svg width="50px" height="50px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,7 +16,8 @@
             </defs>
         </svg>
     </a>
-</button>
+</button> --}}
+
 
 
 {{-- Navbar --}}
