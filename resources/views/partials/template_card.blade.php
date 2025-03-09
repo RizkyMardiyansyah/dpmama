@@ -1,7 +1,7 @@
 <div class="card webtemplate col-lg-4 col-md-6 col-12">
-    <a href="{{ $template->link }}" target="_blank">
+    
         <img src="{{ asset('storage/' . $template->image) }}" alt="{{ $template->title }}">
-    </a>
+    
     <div class="d-flex" style="padding: 0px">
         <div class="card-title">
             <a style="text-decoration: none; color: black;">
