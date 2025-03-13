@@ -54,8 +54,8 @@
                                                 
                     
                                                 <div class="Subtotal d-flex justify-content-between align-items-center">
-                                                    <h5  style="font-weight: 700 !important; color: rgba(0, 0, 0, 0.8) !important;" class="cart-title" >Total Pesanan</h5>
-                                                    <h5 style="font-weight:  700 !important;" class="cart-title" class="price">{{ $pesanan->total_payment == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $pesanan->total_payment, 2, ',', '.') }}</h5>
+                                                    <p  style="font-weight: 700 !important; color: rgba(0, 0, 0, 0.8) !important;" class="cart-title" >Total Pesanan</p>
+                                                    <p style="font-weight:  700 !important;" class="cart-title" class="price">{{ $pesanan->total_payment == 0 ? 'Rp. 0' : 'Rp. ' . number_format( $pesanan->total_payment, 0, ',', '.') }}</p>
                                                 </div>  
                                             </div>              
                                         </div>
