@@ -308,7 +308,7 @@ document.querySelectorAll(".template-checkbox").forEach(checkbox => {
                 
                 // Tampilkan loading Swal
                 Swal.fire({
-                    title: 'Please wait...',
+                    title: 'Tunggu Sebentar...',
                     html: `<div style="text-align: center;">
                             <div class="spinner" style="display: inline-block; margin: 10px auto;"></div>
                         </div>`,
