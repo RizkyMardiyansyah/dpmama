@@ -1128,6 +1128,9 @@ margin-bottom: 20px;
         
     
     @media (min-width: 992px) { /* Ukuran lg dimulai dari 992px */
+      .orderp20{
+        padding: 20px;
+      }
       #imageCarousel{
         margin-bottom: 20px;
       }

@@ -197,9 +197,6 @@ orderList += "</ol>";
 // Hilangkan karakter yang tidak diinginkan
 document.getElementById("order_detail").value = orderList;
 
-
-
-
             document.getElementById("total_payment").value = totalPrice;
             
         }
@@ -303,7 +300,7 @@ document.querySelectorAll(".template-checkbox").forEach(checkbox => {
             showCancelButton: true,
             confirmButtonColor: "#488EFE",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Iya, Pesan"
+            confirmButtonText: "Iya, Pesan",
             cancelButtonText: "Batal"
         }).then((result) => {
             if (result.isConfirmed) { 

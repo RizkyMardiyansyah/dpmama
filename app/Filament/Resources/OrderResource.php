@@ -7,6 +7,7 @@ use App\Filament\Resources\OrderResource\RelationManagers;
 use App\Models\order;
 use App\Models\subscription;
 use App\Models\template;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Form;
@@ -25,6 +26,7 @@ use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction as TablesExportBulkActi
 use pxlrbt\FilamentExcel\Exports\ExcelExport;
 use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Enums\FiltersLayout;
+use Illuminate\Support\Facades\Response;
 use pxlrbt\FilamentExcel\Columns\Column;
 use Malzariey\FilamentDaterangepickerFilter\Filters\DateRangeFilter;
 
@@ -112,6 +114,11 @@ class OrderResource extends Resource
             
             ->actions([
                 Tables\Actions\EditAction::make(),
+                // Tables\Actions\Action::make('generatePdf')
+                // ->label('Card')
+                // ->icon('heroicon-s-document-text')
+                // ->action(fn ($record) => static::generatePdf($record)),
+                Tables\Actions\DeleteAction::make()
             ])
             
             ->bulkActions([
@@ -184,6 +191,17 @@ class OrderResource extends Resource
                     ),
                 ]),
             ]);
+    }
+    public static function generatePdf($record)
+    {
+        // Load tampilan dari Blade View "card.blade.php"
+        $pdf = Pdf::loadView('card', ['record' => $record]); 
+
+        // Nama file PDF yang akan diunduh
+        $pdfName = "Card-{$record->name}.pdf";
+
+        // Download atau tampilkan langsung
+        return Response::streamDownload(fn() => print($pdf->output()), $pdfName);
     }
 
     public static function getRelations(): array

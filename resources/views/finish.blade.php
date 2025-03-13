@@ -28,7 +28,7 @@
             <div class="row">
                 @csrf
                 <div class="finishCart container serv">                
-                    <div class="container">
+                    <div class="">
 
                         <div class="cart">
                             <div class="section">
@@ -41,8 +41,8 @@
                                 </p>
 
                                 
-                                <div style="padding: 20px">
-                                    <div style="border: none" class="cart order">   
+                                <div class="orderp20" style="padding-top: 20px">
+                                    <div style="border: none" class="order">   
                             
                                         <div class="p-0 cart mb-4">
                                             <div class="section p-0">
