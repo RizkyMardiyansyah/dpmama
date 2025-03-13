@@ -279,18 +279,43 @@ document.querySelectorAll(".template-checkbox").forEach(checkbox => {
 
         let name = document.querySelector('input[name="name"]').value.trim();
         let phone = document.querySelector('input[name="phone_number"]').value.trim();
-        let order = document.getElementById('order_detail').value.trim();
+        
+        let selectedCheckboxes = document.querySelectorAll('.template-checkbox:checked');
+       
+        let order = selectedCheckboxes.length > 0 ? "selected" : ""; 
+        
 
         // Cek apakah input kosong
-        if (name === '' || phone === '' || order === '') {
-            Swal.fire({
-                icon: 'warning',
-                title: 'Maaf...',
-                text: 'Harap isi Nama dan Nomor Hp sebelum melanjutkan!',
-                confirmButtonColor: "#E18903"
-            });
-            return; // Hentikan eksekusi jika ada input yang kosong
-        }
+        if (!name.trim()) {
+    Swal.fire({
+        icon: 'warning',
+        title: 'Nama Tidak Boleh Kosong',
+        text: 'Silakan isi nama Anda sebelum melanjutkan.',
+        confirmButtonColor: "#E18903"
+    });
+    return;
+}
+
+if (!phone.trim()) {
+    Swal.fire({
+        icon: 'warning',
+        title: 'Nomor HP Diperlukan',
+        text: 'Harap isi nomor HP yang valid untuk keperluan konfirmasi pesanan.',
+        confirmButtonColor: "#E18903"
+    });
+    return;
+}
+
+if (!order.trim()) {
+    Swal.fire({
+        icon: 'warning',
+        title: 'Pesanan Belum Dipilih',
+        text: 'Silakan pilih kue kering & gorengan yang ingin dipesan sebelum melanjutkan.',
+        confirmButtonColor: "#E18903"
+    });
+    return;
+}
+
 
         // Jika input sudah terisi, tampilkan konfirmasi checkout
         Swal.fire({
